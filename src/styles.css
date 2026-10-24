@@ -107,3 +107,22 @@ body {
   background: #2196f3 !important;
   border-color: #2196f3 !important;
 }
+/* تعديلات خاصة بالموبايل عشان يظبط المارك أب تلقائياً */
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 12px !important; /* تقليل البادينج عشان ما يأكلش مساحة الشاشة */
+    margin: 8px !important;    /* تقليل المارجن الجانبي */
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden; /* منع أي سكرول عرضي مزعج */
+  }
+
+  /* التأكد إن الجداول والبطاقات تاخد عرض الشاشة بالكامل من غير ما تمط */
+  table, .p-datatable, .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+}
