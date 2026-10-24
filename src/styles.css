@@ -126,3 +126,28 @@ body {
     box-sizing: border-box;
   }
 }
+/* حل مشكلة الـ Sidebar والشاشات الصغيرة للموبايل */
+@media screen and (max-width: 768px) {
+  /* لو الحاضن الرئيسي للـ app مدي display flex بالعرض، نخليه تحت بعضه */
+  app-root, .app-layout, .layout-wrapper, main {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* تحويل الـ Sidebar لتكون فوق المحتوى بعرض الشاشة بدل ما هي على جنب */
+  app-sidebar, .sidebar, aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    height: auto !important;
+  }
+
+  /* جعل مساحة المحتوى تاخد الشاشة كاملاً */
+  .content, .main-content, router-outlet + * {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+}
