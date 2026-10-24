@@ -151,3 +151,33 @@ body {
     padding: 8px !important;
   }
 }
+/* تعديل خاص لإلغاء تأثير الـ sidebar على الموبايل ونزول المحتوى كاملاً */
+@media screen and (max-width: 768px) {
+  /* جعل الحاضن الرئيسي وشاشات الـ main تترتب تحت بعضها بعرض الشاشة */
+  app-root, .app-layout, main, main.with-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* جعل القائمة الجانبية تاخد عرض الشاشة أو تتحول لعرض مرن فوق */
+  app-sidebar, .sidebar, aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    height: auto !important;
+  }
+
+  /* محتوى الصفحة ياخد العرض كامل بدون أي مساحات جانبية محجوزة للديسكتوب */
+  .content, .main-content, router-outlet + * {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+}
