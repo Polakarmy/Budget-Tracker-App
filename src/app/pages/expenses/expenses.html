@@ -1,0 +1,76 @@
+<main class="p-8">
+  <!-- Header Section -->
+  <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <h1 class="text-gray-900 mb-2"><i class="pi pi-minus-circle"></i> Transactions</h1>
+    <p class="text-gray-600">Search and view your transactions.</p>
+  </section>
+
+  <!-- Search and Filter Section -->
+  <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div class="flex gap-4 items-center">
+      <input
+        pInputText
+        placeholder="Search transactions..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        class="flex-1"
+      />
+      <div class="flex gap-2">
+        <p-button
+          label="All"
+          [styleClass]="filterType === 'all' ? 'active-filter-button' : 'p-button-secondary'"
+          (onClick)="setFilterType('all')"
+        ></p-button>
+        <p-button
+          label="Income"
+          [styleClass]="filterType === 'income' ? 'active-filter-button' : 'p-button-secondary'"
+          (onClick)="setFilterType('income')"
+        ></p-button>
+        <p-button
+          label="Expense"
+          [styleClass]="filterType === 'expense' ? 'active-filter-button' : 'p-button-secondary'"
+          (onClick)="setFilterType('expense')"
+        ></p-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transactions Table Section -->
+  <section class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-semibold mb-4">All Transactions</h3>
+    <table class="w-full table-auto">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2">Title</th>
+          <th class="text-left py-2">Category</th>
+          <th class="text-left py-2">Amount</th>
+          <th class="text-left py-2">Date</th>
+          <th class="text-left py-2">Type</th>
+          <th class="text-left py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of filteredTransactions" class="border-b hover:bg-gray-50">
+          <td class="py-3">{{ transaction.displayTitle }}</td>
+          <td class="py-3">{{ transaction.category || transaction.source }}</td>
+          <td class="py-3" [ngClass]="transaction.type === 'income' ? 'text-green-500' : 'text-gray-900'">
+            {{ transaction.type === 'income' ? '+' : '-' }}${{ transaction.amount.toFixed(2) }}
+          </td>
+          <td class="py-3">{{ transaction.date | date }}</td>
+          <td class="py-3">
+            <span [ngClass]="transaction.type === 'income' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'" 
+                  class="px-2 py-1 rounded-full text-xs font-medium">
+              {{ transaction.type === 'income' ? 'Income' : 'Expense' }}
+            </span>
+          </td>
+          <td class="py-3">
+            <button class="delete-btn" (click)="deleteTransaction(transaction)">
+              <i class="pi pi-trash"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

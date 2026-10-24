@@ -1,0 +1,19 @@
+/* Budgets page styles */
+
+.delete-btn {
+  padding: 6px 10px;
+  background: #2196f3;
+  color: #ffffff;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.delete-btn:hover { background: #4caf50; }
+
+.add-budget-btn:hover {
+  background: #4caf50 !important;
+  border-color: #4caf50 !important;
+}

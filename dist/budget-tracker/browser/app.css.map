@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;14c6b8ed014770559451ea1c35ec5db2517c0b318d546e882222e5d1e39f641e;D:/new project/budget-tracker/src/app/app.ts"],
+  "sourcesContent": ["\n    main.with-sidebar {\n      margin-left: 250px;\n      transition: margin-left 0.3s;\n    }\n  "],
+  "mappings": ";AACI,IAAI,CAAC;AACH,eAAa;AACb,cAAY,YAAY;AAC1B;",
+  "names": []
+}

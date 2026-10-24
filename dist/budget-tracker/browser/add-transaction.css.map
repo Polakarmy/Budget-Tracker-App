@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/add-transaction/add-transaction.css"],
+  "sourcesContent": ["/* Add Transaction styles */\r\n\r\n.add-transaction-btn:hover {\r\n  background: #4caf50 !important;\r\n  border-color: #4caf50 !important;\r\n}"],
+  "mappings": ";AAEA,CAAC,mBAAmB;AAClB,cAAY;AACZ,gBAAc;AAChB;",
+  "names": []
+}

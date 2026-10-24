@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/budgets/budgets.css"],
+  "sourcesContent": ["/* Budgets page styles */\r\n\r\n.delete-btn {\r\n  padding: 6px 10px;\r\n  background: #2196f3;\r\n  color: #ffffff;\r\n  border: 1px solid #1976d2;\r\n  border-radius: 6px;\r\n  cursor: pointer;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  gap: 8px;\r\n}\r\n.delete-btn:hover { background: #4caf50; }\r\n\r\n.add-budget-btn:hover {\r\n  background: #4caf50 !important;\r\n  border-color: #4caf50 !important;\r\n}"],
+  "mappings": ";AAEA,CAAC;AACC,WAAS,IAAI;AACb,cAAY;AACZ,SAAO;AACP,UAAQ,IAAI,MAAM;AAClB,iBAAe;AACf,UAAQ;AACR,WAAS;AACT,eAAa;AACb,OAAK;AACP;AACA,CAXC,UAWU;AAAS,cAAY;AAAS;AAEzC,CAAC,cAAc;AACb,cAAY;AACZ,gBAAc;AAChB;",
+  "names": []
+}

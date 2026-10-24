@@ -1,0 +1,6 @@
+<div *ngIf="didError" class="inline-block bg-gray-100 text-center align-middle">
+  <div class="flex items-center justify-center w-full h-full">
+    <img [src]="ERROR_IMG_SRC" alt="Error loading image" [attr.data-original-url]="src" />
+  </div>
+</div>
+<img *ngIf="!didError" [src]="src" [alt]="alt" (error)="handleError()" />

@@ -1,0 +1,129 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50;
+  padding: 0;
+}
+
+.login-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.login-card p {
+  color: #6b7280;
+}
+
+.login-card form {
+  margin-top: 1.5rem;
+}
+
+.login-card label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.login-card input,
+.login-card .p-password input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-card .p-password input {
+  padding-right: 2.5rem;
+}
+
+.login-card .p-password-toggle {
+  right: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login-card input:focus,
+.login-card .p-password input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.login-card .ng-invalid {
+  border-color: #ef4444;
+}
+
+.login-card small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.login-card .p-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-card .p-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4caf50 0%, #4caf50 100%);
+}
+
+.login-card .p-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-card .p-password {
+  height: 3rem;
+}
+
+.login-card .text-center {
+  text-align: center;
+}
+
+.login-card a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  color: #4caf50;
+}
+
+/* Show-password text styling */
+.show-password {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.show-password:focus {
+  outline: none;
+  text-decoration: underline;
+}

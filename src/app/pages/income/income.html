@@ -1,0 +1,115 @@
+<main class="p-8">
+  <!-- Header Section -->
+  <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <h1 class="text-gray-900 mb-2"><i class="pi pi-plus-circle"></i> Income</h1>
+    <p class="text-gray-600">Track and manage your income sources.</p>
+  </section>
+
+  <!-- Form Section -->
+  <section class="bg-white rounded-lg shadow-md p-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="mb-6">
+          <label for="source" class="block text-sm font-medium text-gray-700 mb-2">Source</label>
+          <input
+            pInputText
+            id="source"
+            type="text"
+            formControlName="source"
+            placeholder="e.g., Salary, Freelance"
+            class="w-full"
+            [class.ng-invalid]="form.get('source')?.invalid && form.get('source')?.touched"
+          />
+          <small *ngIf="form.get('source')?.invalid && form.get('source')?.touched" class="text-red-500">
+            Source is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="amount" class="block text-sm font-medium text-gray-700 mb-2">Amount</label>
+          <input
+            pInputText
+            id="amount"
+            type="number"
+            formControlName="amount"
+            step="0.01"
+            placeholder="0.00"
+            class="w-full"
+            [class.ng-invalid]="form.get('amount')?.invalid && form.get('amount')?.touched"
+          />
+          <small *ngIf="form.get('amount')?.invalid && form.get('amount')?.touched" class="text-red-500">
+            Amount is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+          <input
+            pInputText
+            id="date"
+            type="date"
+            formControlName="date"
+            class="w-full"
+            [class.ng-invalid]="form.get('date')?.invalid && form.get('date')?.touched"
+          />
+          <small *ngIf="form.get('date')?.invalid && form.get('date')?.touched" class="text-red-500">
+            Date is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+          <input
+            pInputText
+            id="description"
+            type="text"
+            formControlName="description"
+            placeholder="Optional description"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <div class="mb-6">
+        <p-checkbox
+          label="Recurring Income"
+          formControlName="recurring"
+          inputId="recurring"
+        ></p-checkbox>
+      </div>
+      <p-button
+        type="submit"
+        label="Add Income"
+        icon="pi pi-plus"
+        [disabled]="form.invalid"
+        styleClass="p-button-lg add-income-btn"
+      ></p-button>
+    </form>
+  </section>
+
+  <!-- Income Table Section -->
+  <section class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-semibold mb-4">All Incomes</h3>
+    <table class="w-full table-auto">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2">Source</th>
+          <th class="text-left py-2">Amount</th>
+          <th class="text-left py-2">Date</th>
+          <th class="text-left py-2">Description</th>
+          <th class="text-left py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let income of incomes" class="border-b hover:bg-gray-50">
+          <td class="py-3">{{ income.source }}</td>
+          <td class="py-3 text-green-500">${{ income.amount.toFixed(2) }}</td>
+          <td class="py-3">{{ income.date | date }}</td>
+          <td class="py-3">{{ income.description || 'No description' }}</td>
+          <td class="py-3">
+            <button class="delete-btn" (click)="deleteIncome(income.id)">
+              <i class="pi pi-trash"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

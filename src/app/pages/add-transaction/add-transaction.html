@@ -1,0 +1,105 @@
+<main class="p-8">
+  <!-- Header Section -->
+  <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <h1 class="text-gray-900 mb-2"><i class="pi pi-plus"></i> Add New Transaction</h1>
+    <p class="text-gray-600">Add a new income or expense transaction.</p>
+  </section>
+
+  <!-- Form Section -->
+  <section class="bg-white rounded-lg shadow-md p-6 max-w-2xl">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-1 gap-6 mb-6">
+        <div class="mb-6">
+          <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+          <input
+            pInputText
+            id="title"
+            type="text"
+            formControlName="title"
+            placeholder="Transaction title"
+            class="w-full"
+            [class.ng-invalid]="form.get('title')?.invalid && form.get('title')?.touched"
+          />
+          <small *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="text-red-500">
+            Title is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+          <input
+            pInputText
+            id="category"
+            type="text"
+            formControlName="category"
+            placeholder="e.g., Food, Transport, Salary"
+            class="w-full"
+            [class.ng-invalid]="form.get('category')?.invalid && form.get('category')?.touched"
+          />
+          <small *ngIf="form.get('category')?.invalid && form.get('category')?.touched" class="text-red-500">
+            Category is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+          <select
+            pInputText
+            id="type"
+            formControlName="type"
+            class="w-full"
+            [class.ng-invalid]="form.get('type')?.invalid && form.get('type')?.touched"
+          >
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+          <small *ngIf="form.get('type')?.invalid && form.get('type')?.touched" class="text-red-500">
+            Type is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="amount" class="block text-sm font-medium text-gray-700 mb-2">Amount</label>
+          <input
+            pInputText
+            id="amount"
+            type="number"
+            formControlName="amount"
+            step="0.01"
+            placeholder="0.00"
+            class="w-full"
+            [class.ng-invalid]="form.get('amount')?.invalid && form.get('amount')?.touched"
+          />
+          <small *ngIf="form.get('amount')?.invalid && form.get('amount')?.touched" class="text-red-500">
+            Amount is required.
+          </small>
+        </div>
+        <div class="mb-6">
+          <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+          <input
+            pInputText
+            id="date"
+            type="date"
+            formControlName="date"
+            class="w-full"
+            [class.ng-invalid]="form.get('date')?.invalid && form.get('date')?.touched"
+          />
+          <small *ngIf="form.get('date')?.invalid && form.get('date')?.touched" class="text-red-500">
+            Date is required.
+          </small>
+        </div>
+      </div>
+      <div class="mb-6">
+        <p-checkbox
+          label="Recurring Transaction"
+          formControlName="recurring"
+          inputId="recurring"
+        ></p-checkbox>
+      </div>
+      <p-button
+        type="submit"
+        label="Add Transaction"
+        icon="pi pi-plus"
+        [disabled]="form.invalid || loading"
+        styleClass="p-button-lg add-transaction-btn"
+      ></p-button>
+    </form>
+  </section>
+</main>
