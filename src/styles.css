@@ -110,13 +110,9 @@ body {
 /* تعديلات خاصة بالموبايل عشان يظبط المارك أب تلقائياً */
 @media screen and (max-width: 768px) {
   .page-container {
-    padding: 12px !important; /* تقليل البادينج عشان ما يأكلش مساحة الشاشة */
-    margin: 8px !important;    /* تقليل المارجن الجانبي */
+    padding: 12px !important;
+    margin: 8px !important;
     box-sizing: border-box;
-  }
-
-  body {
-    overflow-x: hidden; /* منع أي سكرول عرضي مزعج */
   }
 
   /* التأكد إن الجداول والبطاقات تاخد عرض الشاشة بالكامل من غير ما تمط */
@@ -125,59 +121,41 @@ body {
     max-width: 100% !important;
     box-sizing: border-box;
   }
-}
-/* حل مشكلة الـ Sidebar والشاشات الصغيرة للموبايل */
-@media screen and (max-width: 768px) {
-  /* لو الحاضن الرئيسي للـ app مدي display flex بالعرض، نخليه تحت بعضه */
-  app-root, .app-layout, .layout-wrapper, main {
-    display: flex !important;
-    flex-direction: column !important;
+
+  /* إجبار الصفحة كلها وعنصر الـ main على أخذ عرض الشاشة كاملاً وتفريغ أي هوامش */
+  html, body, app-root, .app-layout {
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow-x: hidden !important;
   }
 
-  /* تحويل الـ Sidebar لتكون فوق المحتوى بعرض الشاشة بدل ما هي على جنب */
-  app-sidebar, .sidebar, aside {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: relative !important;
-    height: auto !important;
-  }
-
-  /* جعل مساحة المحتوى تاخد الشاشة كاملاً */
-  .content, .main-content, router-outlet + * {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 8px !important;
-  }
-}
-/* تعديل خاص لإلغاء تأثير الـ sidebar على الموبايل ونزول المحتوى كاملاً */
-@media screen and (max-width: 768px) {
-  /* جعل الحاضن الرئيسي وشاشات الـ main تترتب تحت بعضها بعرض الشاشة */
-  app-root, .app-layout, main, main.with-sidebar {
+  /* تحويل الـ main والـ with-sidebar لنظام عمودي يملى الشاشة */
+  main, main.with-sidebar, [class*="sidebar"] {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* جعل القائمة الجانبية تاخد عرض الشاشة أو تتحول لعرض مرن فوق */
-  app-sidebar, .sidebar, aside {
+  /* جعل الـ Sidebar تأخذ عرض الشاشة كاملاً فوق المحتوى */
+  app-sidebar, .sidebar, aside, nav {
     width: 100% !important;
     max-width: 100% !important;
     position: relative !important;
     height: auto !important;
   }
 
-  /* محتوى الصفحة ياخد العرض كامل بدون أي مساحات جانبية محجوزة للديسكتوب */
-  .content, .main-content, router-outlet + * {
+  /* محتوى الصفحة والـ router-outlet ياخدوا العرض كامل ويزيلوا أي قيود */
+  .content, .main-content, router-outlet + *, app-add-transaction, app-expenses {
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
-    padding: 8px !important;
+    padding: 10px !important;
     box-sizing: border-box !important;
   }
 }
